@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import React, { useState } from 'react';
+import {Route} from 'react-router-dom';
 
-import MovieList from "./Movies/MovieList";
-import SavedList from "./Movies/SavedList";
-import Movie from "./Movies/Movie";
-//import { runInContext } from "vm";
-
+import SavedList from './Movies/SavedList';
+import MovieList from './Movies/MovieList';
+import Movies from './Movies/Movie';
 
 const App = () => {
-  const [savedList, setSavedList] = useState([]);
+  const [savedList, setSavedList] = useState( [] );
 
   const addToSavedList = movie => {
-    setSavedList([...savedList, movie]);
+    setSavedList( [...savedList, movie] );
   };
 
   return (
     <div>
       <SavedList list={savedList} />
-      {console.log('Butthole')}
-      
-      <Route exact path="/" component={MovieList} />
-      <Route path="/movies/:id" component={Movie} />
+      <Route exact path='/' component={MovieList}/>
+      <Route path='/movie/:id' component={Movies}/>
     </div>
   );
 };
